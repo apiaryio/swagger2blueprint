@@ -1,0 +1,28 @@
+{
+  "name": "swagger2blueprint",
+  "version": "1.0.0",
+  "description": "Converts Swagger into API Blueprint",
+  "main": "index.js",
+  "bin": {
+    "swagger2blueprint": "index.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "api",
+    "blueprint",
+    "swagger"
+  ],
+  "author": "Apiary",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  },
+  "dependencies": {
+    "fury": "^0.7.2",
+    "js-yaml": "^3.3.1",
+    "request": "^2.57.0",
+    "yargs": "^3.10.0"
+  }
+}

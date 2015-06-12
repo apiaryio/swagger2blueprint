@@ -13,11 +13,11 @@ sudo npm install -g swagger2blueprint
 ## Usage
 
 ```bash
-# Convert a local file
+# Convert a local file to standard out
 swagger2blueprint uber.yml
 
 # Output to a file
-swagger2blueprint uber.yml >uber.apib
+swagger2blueprint uber.yml uber.apib
 
 # Specify Swagger version
 swagger2blueprint -s 2.0 uber.yml
@@ -28,4 +28,4 @@ swagger2blueprint http://petstore.swagger.io/v2/swagger.json
 
 ## License
 
-MIT License. See the LICENSE file.
+MIT License. See the [LICENSE](https://github.com/apiaryio/swagger2blueprint/blob/master/LICENSE) file.

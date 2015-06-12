@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /*
  * Converts Swagger into API Blueprint.
  */
@@ -14,7 +15,8 @@ var parser = require('yargs')
   .example('$0 swagger.yml', 'Convert file')
   .example('$0 \'http://example.com/swagger.json\'', 'Convert URL')
   .example('$0 -s 2.0 swagger.yml', 'Convert Swagger 2.0 file')
-  .options('s', {describe: 'Swagger version [1.2]'})
+  .options('h', {alias: 'help', description: 'Show help'})
+  .options('s', {describe: 'Swagger version [auto]'})
   .strict();
 
 // Take a loaded Swagger object and converts it to API Blueprint
@@ -40,9 +42,15 @@ function run(argv, done) {
     argv = parser.argv;
   }
 
-  if (argv._.length !== 1) {
+  if (argv.h) {
     parser.showHelp();
     return done(null);
+  }
+
+  if (!argv._.length) {
+    return done(new Error('Requires an input argument'));
+  } else if (argv._.length > 2) {
+    return done(new Error('Too many arguments given!'));
   }
 
   var input = argv._[0];
@@ -54,11 +62,24 @@ function run(argv, done) {
       convert(yaml.safeLoad(body), done);
     });
   } else {
+    if (!fs.existsSync(input)) {
+      return done(new Error('`' + input + '` does not exist!'));
+    }
+
     fs.readFile(input, 'utf-8', function (err, content) {
+      var loaded;
+
       if (err) {
         return done(err);
       }
-      convert(yaml.safeLoad(content), done);
+
+      try {
+        loaded = yaml.safeLoad(content);
+      } catch (yamlError) {
+        return done(new Error('Unable to load document as JSON or YAML!'));
+      }
+
+      convert(loaded, done);
     });
   }
 }
@@ -68,10 +89,14 @@ function run(argv, done) {
 if (require.main === module) {
   run(null, function (err, blueprint) {
     if (err) {
-      console.warn(err);
+      console.warn(err.toString());
       process.exit(1);
-    } else {
-      console.log(blueprint);
+    } else if (blueprint) {
+      if (parser.argv._.length === 2) {
+        fs.writeFileSync(parser.argv._[1], blueprint, 'utf-8');
+      } else {
+        console.log(blueprint);
+      }
     }
   });
 } else {

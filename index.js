@@ -13,8 +13,8 @@ var yaml = require('js-yaml');
 var parser = require('yargs')
   .usage('Usage: $0 [options] infile')
   .example('$0 swagger.yml', 'Convert file')
+  .example('$0 swagger.yml swagger.apib', 'Convert to file')
   .example('$0 \'http://example.com/swagger.json\'', 'Convert URL')
-  .example('$0 -s 2.0 swagger.yml', 'Convert Swagger 2.0 file')
   .options('h', {alias: 'help', description: 'Show help'})
   .options('s', {describe: 'Swagger version [auto]'})
   .strict();

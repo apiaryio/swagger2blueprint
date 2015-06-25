@@ -2,6 +2,10 @@
   "name": "swagger2blueprint",
   "version": "0.1.0",
   "description": "Converts Swagger into API Blueprint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apiaryio/swagger2blueprint"
+  },
   "main": "index.js",
   "bin": {
     "swagger2blueprint": "./index.js"

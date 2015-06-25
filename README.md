@@ -10,7 +10,7 @@ a Swagger 1.2 document, please first use [swagger-converter](https://github.com/
 Requires [Node.js](https://nodejs.org/) and a compiler to install.
 
 ```bash
-sudo npm install -g swagger2blueprint
+npm install -g swagger2blueprint
 ```
 
 ## Usage

@@ -26,7 +26,7 @@
     "mocha": "^2.2.5"
   },
   "dependencies": {
-    "fury": "^0.8.0",
+    "fury": "^0.8.3",
     "js-yaml": "^3.3.1",
     "request": "^2.57.0",
     "yargs": "^3.10.0"

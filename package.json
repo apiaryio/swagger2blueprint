@@ -1,6 +1,6 @@
 {
   "name": "swagger2blueprint",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Converts Swagger into API Blueprint",
   "repository": {
     "type": "git",

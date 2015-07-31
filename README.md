@@ -9,6 +9,8 @@ a Swagger 1.2 document, please first use [swagger-converter](https://github.com/
 
 Requires [Node.js](https://nodejs.org/) and a compiler to install.
 
+Note, at the moment the tool supports only Node.js v0.10. It does not work with Node.js (or io.js) higher than v0.10.
+
 ```bash
 npm install -g swagger2blueprint
 ```

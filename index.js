@@ -8,7 +8,6 @@
 var fs = require('fs');
 var fury = require('fury');
 var request = require('request');
-var yaml = require('js-yaml');
 
 var parser = require('yargs')
   .usage('Usage: $0 [options] infile')
@@ -18,6 +17,8 @@ var parser = require('yargs')
   .options('h', {alias: 'help', description: 'Show help'})
   .options('s', {describe: 'Swagger version [auto]'})
   .strict();
+
+fury.use(require('fury-adapter-apib-serializer'));
 
 // Take a loaded Swagger object and converts it to API Blueprint
 function convert(swagger, done) {
@@ -59,7 +60,7 @@ function run(argv, done) {
       if (err) {
         return done(err);
       }
-      convert(yaml.safeLoad(body), done);
+      convert(body, done);
     });
   } else {
     if (!fs.existsSync(input)) {
@@ -67,19 +68,11 @@ function run(argv, done) {
     }
 
     fs.readFile(input, 'utf-8', function (err, content) {
-      var loaded;
-
       if (err) {
         return done(err);
       }
 
-      try {
-        loaded = yaml.safeLoad(content);
-      } catch (yamlError) {
-        return done(new Error('Unable to load document as JSON or YAML!'));
-      }
-
-      convert(loaded, done);
+      convert(content, done);
     });
   }
 }

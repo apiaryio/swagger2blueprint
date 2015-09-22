@@ -1,6 +1,6 @@
 {
   "name": "swagger2blueprint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Converts Swagger into API Blueprint",
   "repository": {
     "type": "git",
@@ -26,8 +26,8 @@
     "mocha": "^2.2.5"
   },
   "dependencies": {
-    "fury": "^0.8.3",
-    "js-yaml": "^3.3.1",
+    "fury": "^0.9.0",
+    "fury-adapter-apib-serializer": "^0.1.0",
     "request": "^2.57.0",
     "yargs": "^3.10.0"
   }

@@ -26,7 +26,7 @@
     "mocha": "^2.2.5"
   },
   "dependencies": {
-    "fury": "^0.9.0",
+    "fury": "^1.0.0",
     "fury-adapter-apib-serializer": "^0.1.0",
     "request": "^2.57.0",
     "yargs": "^3.10.0"

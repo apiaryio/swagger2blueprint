@@ -19,15 +19,15 @@ var parser = require('yargs')
   .strict();
 
 fury.use(require('fury-adapter-apib-serializer'));
+fury.use(require('fury-adapter-swagger'));
 
 // Take a loaded Swagger object and converts it to API Blueprint
 function convert(swagger, done) {
-  fury.parse({source: swagger}, function (parseErr, api) {
+  fury.parse({source: swagger}, function (parseErr, res) {
     if (parseErr) {
       return done(parseErr);
     }
-
-    fury.serialize({api: api}, function (serializeErr, blueprint) {
+    fury.serialize({api: res.api}, function (serializeErr, blueprint) {
       if (serializeErr) {
         return done(serializeErr);
       }

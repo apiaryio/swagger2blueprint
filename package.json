@@ -26,10 +26,10 @@
     "mocha": "^2.2.5"
   },
   "dependencies": {
-    "fury": "^2.1.0",
-    "fury-adapter-apib-serializer": "^0.1.2",
-    "fury-adapter-swagger": "^0.9.4",
-    "request": "^2.74.0",
-    "yargs": "^3.10.0"
+    "fury": "^2.3.0",
+    "fury-adapter-apib-serializer": "<0.3.1",
+    "fury-adapter-swagger": "^0.10.0",
+    "request": "^2.0",
+    "yargs": "^8.0"
   }
 }

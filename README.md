@@ -5,6 +5,10 @@ Converts a [Swagger](http://swagger.io/) API description into the [API Blueprint
 Currently supported is Swagger version 2.0. If you would like to convert
 a Swagger 1.2 document, please first use [swagger-converter](https://github.com/apigee-127/swagger-converter).
 
+## Deprecation Notice
+
+This library is deprecated in favour of [Fury CLI](https://github.com/apiaryio/fury-cli).
+
 ## Installation
 
 Requires [Node.js](https://nodejs.org/) and a compiler to install.
